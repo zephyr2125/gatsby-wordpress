@@ -1,0 +1,48 @@
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+  @if $point == x-large {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == xsmall {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point == tiny {
+    @media (max-width: 426px) {
+      @content;
+    }
+  }
+}
+
+@mixin plyr($color: #64656a) {
+  .plyr__control--overlaid {
+    background: rgba($color, 0.8);
+    width: 60px;
+    justify-content: center;
+    display: flex !important;
+    height: 40px;
+    border-radius: 6px;
+    align-items: center;
+    background: black;
+    margin-top: 10px;
+    @include breakpoint(small) {
+      margin-top: 0px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,600,700,800,900,italic&subset=latin,latin-ext');
+  
+.site-main{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: 100%;
+    min-height: 100vh;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+.container_site{
+    max-width: 1024px;
+    margin: 0 auto;
+}

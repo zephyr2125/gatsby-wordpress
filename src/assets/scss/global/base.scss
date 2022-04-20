@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+::-moz-selection {
+  color: $color--secondary;
+  background: $color--primary;
+}
+
+::selection {
+  color: $color--secondary;
+  background: $color--primary;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
+  background: rgb(180,174,212);
+  background: linear-gradient(90deg, rgba(180,174,212,1) 0%, rgba(240,222,237,1) 49%, rgba(201,226,237,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(180,174,212,1) 0%, rgba(240,222,237,1) 49%, rgba(201,226,237,1) 100%); 
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+p,
+ul,
+li,
+ol,
+span,
+div,
+table {
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+a {
+  font-family: $font;
+  color: $color--primary;
+}
