@@ -1,29 +1,42 @@
 import React from "react"
-import { graphql } from "gatsby"
-
-import Layout from "../layouts"
+import Link from "../utils/link"
 import Seo from "../components/seo"
+import { gql, useQuery } from "@apollo/client"
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+const NotFoundPage = () => {
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
-  )
-}
-
-export default NotFoundPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+  const GET_DATA = gql`
+  query getData {
+    page(id: "cG9zdDo5Nzc=") {
+      title
+      notfound {
+        contentPage
+        link {
+          title
+          url
+        }
       }
     }
   }
-`
+  `;
+  const { data } = useQuery(GET_DATA);
+  return (
+  <>
+    <Seo title="404: Not found" />
+    <div className="orther-error container">
+       <div class="title-page-orther">
+            <h1>{data?.page.title}</h1>
+       </div>
+       <div className="content-page-orther">
+          {data?.page.notfound.contentPage}
+       </div>
+       <div className="link_orther">
+         <Link className="btn" to={data?.page.notfound.link.url} >{data?.page.notfound.link.title}</Link>
+       </div>
+       
+    </div>
+  </>
+  )
+  }
+
+export default NotFoundPage

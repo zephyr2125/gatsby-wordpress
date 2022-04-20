@@ -5,6 +5,9 @@
  * https://www.gatsbyjs.com/docs/gatsby-config/
  *
  */
+ require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   /**
@@ -14,6 +17,12 @@ module.exports = {
    * If you need any more you can search here: https://www.gatsbyjs.com/plugins/
    */
   plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-layout`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       /**
        * First up is the WordPress source plugin that connects Gatsby
@@ -27,8 +36,10 @@ module.exports = {
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
         url:
-          process.env.WPGRAPHQL_URL ||
-          `https://wpgatsbydemo.wpengine.com/graphql`,
+          process.env.GATSBY_URL || `${process.env.GATSBY_URL}`,
+          hostingWPCOM: false,
+          useACF: true,
+          acfOptionPageIds: [],
       },
     },
 
@@ -41,8 +52,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets`,
-        path: `${__dirname}/content/assets`,
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
 
@@ -51,10 +62,6 @@ module.exports = {
      * See https://www.gatsbyjs.com/docs/gatsby-image/#setting-up-gatsby-image
      * if you're curious about it.
      */
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sass`,
     {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
@@ -65,12 +72,12 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
 
     // See https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=gatsby-plugin-react-helmet
-    `gatsby-plugin-react-helmet`,
+    
 
     /**
      * this (optional) plugin enables Progressive Web App + Offline functionality
@@ -78,4 +85,5 @@ module.exports = {
      */
     // `gatsby-plugin-offline`,
   ],
+  pathPrefix: `/staging`,
 }

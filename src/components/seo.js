@@ -9,8 +9,22 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useQuery } from "@apollo/client";
+import gql from "graphql-tag";
+
 
 const Seo = ({ description, lang, meta, title }) => {
+
+  const GET_SETTING_SEO = gql`
+    query getSettingSeo {
+      page(id: "cG9zdDoxMDQ=") {
+        seo {
+          enableSeoIndex
+        }
+      }
+    }
+  `;
+
   const { wp, wpUser } = useStaticQuery(
     graphql`
       query {
@@ -29,6 +43,9 @@ const Seo = ({ description, lang, meta, title }) => {
     `
   )
 
+  const { data } = useQuery(GET_SETTING_SEO);
+  
+  const settingSeo = data?.page.seo.enableSeoIndex;
   const metaDescription = description || wp.generalSettings?.description
   const defaultTitle = wp.generalSettings?.title
 
@@ -72,6 +89,10 @@ const Seo = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `robots`,
+          content: settingSeo === "yes" ? `index, follow` : `noindex, nofollow`
+        }
       ].concat(meta)}
     />
   )
