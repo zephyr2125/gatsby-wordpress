@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby WordPress default
+  Gatsby WordPress Custom
 </h1>
 
 Kick off your wordpress gatsby project with this blog boilerplate. This starter ships with the main Gatsby Wordpress configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
@@ -23,6 +23,30 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     .
     ├── node_modules
     ├── src
+        ├── assets
+            ├── fonts
+            ├── images
+            ├── scss
+                ├── components
+                    ├── header.scss
+                    ├── footer.scss
+                ├── global
+                ├── main.scss
+    ├── components
+        ├── bio.js
+        ├── seo.js
+        ├── header
+            ├── index.js
+        ├── footer
+            ├── index.js
+    ├── layouts
+        ├── index.js
+        ├── style.scss
+    ├── pages
+        ├── 404.js
+        ├── index.js
+    ├── sass
+    ├── templates
     ├── .gitignore
     ├── .prettierrc
     ├── gatsby-browser.js
