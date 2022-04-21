@@ -22,7 +22,6 @@ Build: <br>
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-   
     ├── node_modules
     ├── src
         ├── assets
@@ -61,3 +60,4 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     └── README.md
 
 <b>Theme custom by <a href="https://github.com/zephyr2125">Zephyr</a></b>
+Thank you!!!
