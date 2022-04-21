@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "../assets/scss/main.scss";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
-import { AppProvider } from "../context";
 
 import {
   ApolloClient,
@@ -40,7 +39,6 @@ const client = new ApolloClient({
 });
 const Layout = ({ children }) => {
   return (
-    <AppProvider>
       <ApolloProvider client={client}>
         <div className="site-main">
           <div className="container_site">
@@ -54,7 +52,6 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </ApolloProvider>
-    </AppProvider>
   )
 }
 
