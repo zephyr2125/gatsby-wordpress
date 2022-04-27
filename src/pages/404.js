@@ -21,22 +21,22 @@ const NotFoundPage = () => {
   `;
   const { data } = useQuery(GET_DATA);
   return (
-  <>
-    <Seo title="404: Not found" />
-    <div className="orther-error container">
-       <div class="title-page-orther">
-            <h1>{data?.page.title}</h1>
-       </div>
-       <div className="content-page-orther">
+    <>
+      <Seo title="404: Not found" />
+      <div className="orther-error container">
+        <div class="title-page-orther">
+          <h1>{data?.page.title}</h1>
+        </div>
+        <div className="content-page-orther">
           {data?.page.notfound.contentPage}
-       </div>
-       <div className="link_orther">
-         <Link className="btn" to={data?.page.notfound.link.url} >{data?.page.notfound.link.title}</Link>
-       </div>
-       
-    </div>
-  </>
+        </div>
+        <div className="link_orther">
+          <Link className="btn" to={data?.page.notfound.link.url} >{data?.page.notfound.link.title}</Link>
+        </div>
+
+      </div>
+    </>
   )
-  }
+}
 
 export default NotFoundPage

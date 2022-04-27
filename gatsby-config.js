@@ -22,7 +22,7 @@ module.exports = {
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
         url:
-          process.env.GATSBY_URL || `${process.env.GATSBY_URL}`,
+          process.env.REACT_APP_API_URL_GRAPHQL,
           hostingWPCOM: false,
           useACF: true,
           acfOptionPageIds: [],
