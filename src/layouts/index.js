@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../assets/scss/main.scss";
-import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 import {
   ApolloClient,
