@@ -20,7 +20,6 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // the only required plugin option for WordPress is the GraphQL url.
         url:
           process.env.REACT_APP_API_URL_GRAPHQL,
           hostingWPCOM: false,
@@ -36,7 +35,6 @@ module.exports = {
       },
     },
     {
-      // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gatsby Starter WordPress Blog`,
@@ -45,7 +43,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`,
       },
     },
   ]
